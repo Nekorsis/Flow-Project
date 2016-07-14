@@ -1,8 +1,12 @@
-var koa = require('koa');
-var app = koa();
+var express = require('express');
+var app = express();
 
-app.use(function *(){
-	this.body = 'Hello World';
+app.use(express.static('app/static'));
+
+app.get('/', function(){
+	res.sendFile('app/static/index.html');
 });
 
-app.listen(3000);
+app.listen(3000, function(){
+	console.log('server is up and running');
+});
