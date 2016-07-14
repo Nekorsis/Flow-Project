@@ -10,7 +10,7 @@
   "license": "ISC",
   "scipts": {
     "start": "npm run webpack && npm run server",
-    "webpack": "/node_modules/.bin/webpack /app/containers/index.js",
+    "webpack": "./node_modules/.bin/webpack --config ./webpack/webpack.config.js",
     "server": "./node_modules/.bin/nodemon server.js"
   },
   "dependencies": {
