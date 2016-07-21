@@ -1,1 +1,1 @@
-import Hello from './containers/container';
+import Container from './containers/container';

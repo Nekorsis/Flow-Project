@@ -1,10 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+//import './container.styl';
 
-class Hello extends React.Component {
+class Container extends React.Component {
 	render() {
-		return <h1>Hello</h1>
+		return (
+			<div className= 'parent'>
+				<h1 className='hello'>Hello</h1>
+				<h2 className='world'>World</h2>
+				<h3>dasdsad</h3>
+			</div>
+		);
 	}
 }
 
-ReactDOM.render(<Hello/>, document.getElementById('world'));
+ReactDOM.render(<Container/>, document.getElementById('world'));
