@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import './container.styl';
+import './container.styl';
 
 class Container extends React.Component {
 	render() {
@@ -8,7 +8,7 @@ class Container extends React.Component {
 			<div className= 'parent'>
 				<h1 className='hello'>Hello</h1>
 				<h2 className='world'>World</h2>
-				<h3>dasdsad</h3>
+				<h3>dasdsвфывыфвывывфывad</h3>
 			</div>
 		);
 	}
