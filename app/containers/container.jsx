@@ -1,9 +1,11 @@
+/* @flow */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './container.styl';
 
 class Container extends React.Component {
 	render() {
+		const str = 1;
 		return (
 			<div className= 'parent'>
 				<h1 className='hello'>Hello</h1>
