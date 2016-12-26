@@ -8,7 +8,7 @@ class Container extends React.Component {
 		const str = 1;
 		return (
 			<div className= 'parent'>
-				<h1 className='hello'>Hello</h1>
+				<h1 className='hello'>LUL</h1>
 				<h2 className='world'>World</h2>
 				<h3>dasdsвфывыфвывывфывad</h3>
 			</div>

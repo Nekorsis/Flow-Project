@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run webpack",
-    "webpack": "./node_modules/.bin/webpack --config ./webpack/webpack.config.js",
+    "start": "concurrently -t -r \"npm run webpack\" \"npm run server\"",
+    "webpack": "./node_modules/.bin/webpack -w --config ./webpack/webpack.config.js",
     "server": "./node_modules/.bin/nodemon server.js",
     "dev-server": "./node_modules/.bin/webpack-dev-server --hot --no-info --progress --colors --config ./webpack/webpack.config.js",
     "flow": "./node_modules/.bin/flow check"
@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^3.1.0",
     "express": "^4.14.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "nodemon": "^1.9.2",
