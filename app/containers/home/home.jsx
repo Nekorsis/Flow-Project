@@ -9,7 +9,7 @@ import './home.styl';
 
 function mapStateToProps(state) {
   return {
-    events: state.appReducers.events,
+    events: state.homeReducers.events,
   };
 }
 
@@ -21,9 +21,15 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  componentWillMount() {
+    this.props.requestEvents();
+  }
+
   render() {
     return (
       <div className='home-container'>
+        Hello world
       </div>
     );
   }

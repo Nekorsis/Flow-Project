@@ -2,20 +2,33 @@ import { combineReducers } from 'redux';
 import { actionTypes as types } from './actionTypes';
 
 const initialState = {
-  events: {},
+  isEventsRequestSend: false,
+  isEventsRequestSucceeded: false,
+  isEventsRequestFailed: false,
+  events: [],
 };
 
-const appReducers = (state = initialState, { type, payload }) => {
+const homeReducers = (state = initialState, { type, payload }) => {
   switch (type) {
   case types.REQUEST_EVENTS:
-    console.log('REQUEST_EVENTS reducer called');
     return {
       ...state,
-      test: false,
+      isEventsRequestSend: true,
+    };
+  case types.REQUEST_EVENTS_SUCCSESS:
+    return {
+      ...state,
+      isEventsRequestSucceeded: true,
+      events: payload.events,
+    };
+  case types.REQUEST_EVENTS_FAIL:
+    return {
+      ...state,
+      isEventsRequestFailed: true,
     };
   default: return state;
   }
 };
 
-const reducers = combineReducers({ appReducers });
+const reducers = combineReducers({ homeReducers });
 export default reducers;
