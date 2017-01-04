@@ -1,21 +1,21 @@
 import { combineReducers } from 'redux';
-import * as actions from './actionTypes';
+import { actionTypes as types } from './actionTypes';
 
-const counterReducer = (state = 0, action) => {
-  switch (action.type) {
-  case actions.ACTION_INCREMENT:
-    console.log('reducer incriment called');
-    return state + 1;
-  case actions.ACTION_DECREMENT:
-    console.log('reducer decriment called');
-    return state - 1;
-  default:
-    return state;
+const initialState = {
+  events: {},
+};
+
+const appReducers = (state = initialState, { type, payload }) => {
+  switch (type) {
+  case types.REQUEST_EVENTS:
+    console.log('REQUEST_EVENTS reducer called');
+    return {
+      ...state,
+      test: false,
+    };
+  default: return state;
   }
 };
 
-const rootReducer = combineReducers({
-  counterReducer,
-});
-
-export default rootReducer;
+const reducers = combineReducers({ appReducers });
+export default reducers;

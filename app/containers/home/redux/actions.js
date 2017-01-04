@@ -1,19 +1,13 @@
-import * as actions from './actionTypes';
+import { actionTypes as types } from './actionTypes';
 
-const incriment = (payload) => {
-  console.log('action incriment called');
-  return {
-    type: actions.ACTION_INCRIMENT,
-    payload: payload,
-  };
+
+const requestEvents = () => {
+  console.log('action creator called');
+  return { type: types.REQUEST_EVENTS };
 };
 
-const decriment = (payload) => {
-  console.log('action decriment called');
-  return {
-    type: actions.ACTION_DECRIMENT,
-    payload: payload,
-  };
+const goToNextQuestion = (answer) => {
+  return { type: types.GO_TO_NEXT_QUESTION, payload: { answer } };
 };
 
-export default { incriment, decriment };
+export { requestEvents, goToNextQuestion };
