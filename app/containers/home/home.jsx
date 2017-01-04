@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actions from './redux/actions';
 
+import EventsList from './../../components/eventsList';
 import './home.styl';
 
 function mapStateToProps(state) {
@@ -18,6 +19,10 @@ function mapDispatchToProps(dispatch) {
 }
 
 class Home extends React.Component {
+  static propTypes = {
+    requestEvents: React.PropTypes.func,
+  }
+
   constructor(props) {
     super(props);
   }
@@ -29,7 +34,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className='home-container'>
-        Hello world
+        <EventsList events={this.props.events} />
       </div>
     );
   }

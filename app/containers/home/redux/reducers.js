@@ -1,4 +1,3 @@
-import { combineReducers } from 'redux';
 import { actionTypes as types } from './actionTypes';
 
 const initialState = {
@@ -30,5 +29,4 @@ const homeReducers = (state = initialState, { type, payload }) => {
   }
 };
 
-const reducers = combineReducers({ homeReducers });
-export default reducers;
+export default homeReducers;
