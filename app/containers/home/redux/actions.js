@@ -22,8 +22,8 @@ const requestEvents = () => {
 };
 
 
-const goToNextQuestion = (answer) => {
-  return { type: types.GO_TO_NEXT_QUESTION, payload: { answer } };
+const selectCity = (city) => {
+  return { type: types.SELECT_CITY, payload: { city } };
 };
 
-export { requestEvents, goToNextQuestion };
+export { requestEvents, selectCity };

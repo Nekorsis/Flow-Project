@@ -4,7 +4,8 @@ const initialState = {
   isEventsRequestSend: false,
   isEventsRequestSucceeded: false,
   isEventsRequestFailed: false,
-  events: [],
+  selectedCity: 'Moscow',
+  events: '',
 };
 
 const homeReducers = (state = initialState, { type, payload }) => {
@@ -24,6 +25,11 @@ const homeReducers = (state = initialState, { type, payload }) => {
     return {
       ...state,
       isEventsRequestFailed: true,
+    };
+  case types.SELECT_CITY:
+    return {
+      ...state,
+      selectedCity: payload.city,
     };
   default: return state;
   }
