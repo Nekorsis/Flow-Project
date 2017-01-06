@@ -5,6 +5,8 @@ const initialState = {
   isEventsRequestSucceeded: false,
   isEventsRequestFailed: false,
   selectedCity: 'Moscow',
+  selectedTheme: 'Any',
+  selectedTime: 'Any',
   events: '',
 };
 
@@ -30,6 +32,16 @@ const homeReducers = (state = initialState, { type, payload }) => {
     return {
       ...state,
       selectedCity: payload.city,
+    };
+  case types.SELECT_THEME:
+    return {
+      ...state,
+      selectedTheme: payload.theme,
+    };
+  case types.SELECT_TIME:
+    return {
+      ...state,
+      selectedTime: payload.time,
     };
   default: return state;
   }

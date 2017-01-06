@@ -26,4 +26,12 @@ const selectCity = (city) => {
   return { type: types.SELECT_CITY, payload: { city } };
 };
 
-export { requestEvents, selectCity };
+const selectTheme = (theme) => {
+  return { type: types.SELECT_THEME, payload: { theme } };
+};
+
+const selectTime = (time) => {
+  return { type: types.SELECT_TIME, payload: { time } };
+};
+
+export { requestEvents, selectCity, selectTheme, selectTime };

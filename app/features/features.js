@@ -21,12 +21,28 @@ const filterEventsByTheme = (events, selectedTheme) => {
   return filterEventsByThemeResult;
 };
 
-const dropdownCityOptions = (events) => {
-  const dropdownCityOptionsResult = [];
-  events.forEach((element) => {
-    dropdownCityOptionsResult.includes(element.eventCity) ? null : dropdownCityOptionsResult.push(element.eventCity);
+const filterEventsByTime = (events, selectedTime) => {
+  const filterEventsByTimeResult = events.filter(event => {
+    return event.eventTime === selectedTime ? true : null;
   });
-  return dropdownCityOptionsResult;
+  return filterEventsByTimeResult;
 };
 
-export { normalizeEventsData, filterEventsByCity, filterEventsByTheme, dropdownCityOptions };
+const dropdownTimeOptions = (events) => {
+  const dropdownTimeOptionsResult = [];
+  events.forEach((element) => {
+    dropdownTimeOptionsResult.includes(element.eventTime) ? null : dropdownTimeOptionsResult.push(element.eventTime);
+  });
+  return dropdownTimeOptionsResult;
+};
+
+
+const mergeEvents = (arr1, arr2, isEqual) => {
+  function isStrictEqual(a, b) {
+    return a === b;
+  }
+  if (isEqual === void 0) { isEqual = isStrictEqual; }
+  return arr1.filter(function (x) { return arr2.some(function (y) { return isEqual(x, y); }); });
+};
+
+export { normalizeEventsData, filterEventsByCity, filterEventsByTheme, dropdownTimeOptions, filterEventsByTime, mergeEvents};
