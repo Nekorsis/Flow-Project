@@ -11,21 +11,22 @@ const EventsList = ({events, filters}) => {
 
   const whatToRender = (filteredByTheme, filteredByTime, mergedEvents, filters) => {
     if (filters.selectedTheme === 'Any' && filters.selectedTime === 'Any') {
-      return events.map(event => {
+      return events.length > 0 ? events.map(event => {
         return <EventCard key={event.eventId} event={event} />;
-      });
+      }) : <div className='tooltip-no-events'>Sorry we couldn't find any events here </div>;
     } else if (filters.selectedTheme != 'Any' && filters.selectedTime === 'Any') {
-      return filteredByTheme.map(event => {
+      return filteredByTheme.length > 0 ? filteredByTheme.map(event => {
         return <EventCard key={event.eventId} event={event} />;
-      });
+      }) : <div className='tooltip-no-events'>{"Sorry we couldn't find any events, there is no " + filters.selectedTheme.toLowerCase() + ' events in this city'}</div>;
     } else if (filters.selectedTheme === 'Any' && filters.selectedTime != 'Any') {
-      return filteredByTime.map(event => {
+
+      return filteredByTime.length > 0 ? filteredByTime.map(event => {
         return <EventCard key={event.eventId} event={event} />;
-      });
+      }) : <div className='tooltip-no-events'>{"Sorry we couldn't find any events, there is no event at " + filters.selectedTime.toLowerCase() + ' in this city'}</div>;
     } else {
-      return mergedEvents.map(event => {
+      return mergedEvents.length > 0 ? mergedEvents.map(event => {
         return <EventCard key={event.eventId} event={event} />;
-      });
+      }) : <div className='tooltip-no-events'>{"Sorry we couldn't find any events with your filtes"}</div>;
     }
   };
 

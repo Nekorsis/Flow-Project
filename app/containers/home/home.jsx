@@ -27,16 +27,15 @@ function mapDispatchToProps(dispatch) {
 }
 
 class Home extends React.Component {
-  /*
   static propTypes = {
     requestEvents: React.PropTypes.func,
-    // selectCity: React.PropTypes.string,
+    selectCity: React.PropTypes.func,
     selectTheme: React.PropTypes.func,
     // events: React.PropTypes.object,
-    // selectCity: React.PropTypes.string,
+    selectedTime: React.PropTypes.string,
     selectedTheme: React.PropTypes.string,
   }
-  */
+
   constructor(props) {
     super(props);
     this._onCitySelect = this._onCitySelect.bind(this);
@@ -68,6 +67,7 @@ class Home extends React.Component {
     const dropdownCities = ['Moscow', 'Saint Petersburg', 'Tomsk'];
     const dropdownThemes = ['Any', 'Theatre', 'Concert', 'Museum'];
     const dropdownTime = features.dropdownTimeOptions(normalizedDta);
+    dropdownTime.unshift('Any');
 
     const filteredByCity = features.filterEventsByCity(normalizedDta, this.props.selectedCity);
 

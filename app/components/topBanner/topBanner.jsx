@@ -9,4 +9,8 @@ const TopBanner = ({city}) => {
   );
 };
 
+TopBanner.propTypes = {
+  city: React.PropTypes.string.isRequired,
+};
+
 export default TopBanner;

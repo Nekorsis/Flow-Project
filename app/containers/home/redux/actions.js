@@ -12,12 +12,6 @@ const requestEvents = () => {
       .then(data => {
         dispatch({ type: types.REQUEST_EVENTS_SUCCSESS, payload: { events: data }});
       });
-      //TODO add error cath here
-      /*
-      .catch(err => {
-        console.log(err);
-      });
-      */
   };
 };
 
