@@ -3,14 +3,15 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as actions from './redux/actions';
 
-var str: number = 'hello world!';
-// import './home.styl';
+import * as actions from './redux/actions';
+import styles from './home.css';
+// var str: number = 'hello world!';
 
 function mapStateToProps(state) {
   return {
     events: state.appReducers.events,
+    requestEvents: state.appReducers.requestEvents,
   };
 }
 
@@ -22,9 +23,14 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  componentWillMount() {
+    this.props.requestEvents();
+  }
+
   render() {
     return (
-      <div className='home-container'>
+      <div className={styles.homeContainer + ' home-container'}>
       </div>
     );
   }

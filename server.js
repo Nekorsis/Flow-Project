@@ -1,18 +1,18 @@
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
-const io = require('socket.io')(http);
+const events = require('./mockData');
 
 app.use(express.static('./build'));
 
-app.get('/', function(req, res){
-	res.sendFile('./build/index.html');
+app.get('/', (req, res) => {
+  res.sendFile('./build/index.html');
 });
 
-http.listen(3000, function(){
+app.get('/events', (req, res) => {
+  res.json(events);
+});
+
+http.listen(3000, () => {
 	console.log('server is up and running');
-});
-
-io.on('connection', function(socket){
-  console.log('a user connected ', socket);
 });
